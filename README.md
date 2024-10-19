@@ -4,7 +4,7 @@ FLAPPY BIRD GAME IN JAVA
 * If we press the SPACE BAR it will reset the game
 * so when we press the SPACE BAR the bird will JUMPS a bit
 * And everytime you PASS a pipe you will GAIN A POINT
-* And if you COLLODE into the pipe, then the GAME WILL OVER.
+* And if you COLLIDE into the pipe, then the GAME WILL OVER.
 
 * And if you press the SPACE BAR AGAIN it will RESET THE GAME AGAIN
 * If the bird FALL OFF then it will get GAME OVER.
