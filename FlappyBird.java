@@ -1,25 +1,28 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.ArrayList;	//this is used to store all the pipes in our game 
+import java.util.Random;	//this is used to placing our pipes at ramdom positions
 import javax.swing.*;
 
 public class FlappyBird extends JPanel implements ActionListener, KeyListener {
     int boardWidth = 360;
     int boardHeight = 640;
 
-    //images
+    //images	//this four variale are going to store our image objects
     Image backgroundImg;
     Image birdImg;
     Image topPipeImg;
     Image bottomPipeImg;
 
-    //bird class
+    //bird class	
     int birdX = boardWidth/8;
+	    //for X position  which is basically left and right we are going to place the x position 1/8th from the left side of the screen
     int birdY = boardWidth/2;
-    int birdWidth = 34;
-    int birdHeight = 24;
+	    //for Y position is going to be half of the board heigh, so from the top of the screen we are going to move the bird down halfway
+    int birdWidth = 34;		//variable for width
+    int birdHeight = 24;	//variable for height
 
+	//creating class to hold this values
     class Bird {
         int x = birdX;
         int y = birdY;
@@ -27,7 +30,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
         int height = birdHeight;
         Image img;
 
-        Bird(Image img) {
+        Bird(Image img) {	//constructor
             this.img = img;
         }
     }
@@ -51,7 +54,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
         }
     }
 
-    //game logic
+	//game logic for flappy bird
     Bird bird;
     int velocityX = -4; //move pipes to the left speed (simulates bird moving right)
     int velocityY = 0; //move bird up/down speed.
@@ -65,13 +68,13 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
     boolean gameOver = false;
     double score = 0;
 
-    FlappyBird() {
+    FlappyBird() {	//constructor 
         setPreferredSize(new Dimension(boardWidth, boardHeight));
         // setBackground(Color.blue);
         setFocusable(true);
         addKeyListener(this);
 
-        //load images
+        //load images		//get all the four images
         backgroundImg = new ImageIcon(getClass().getResource("./flappybirdbg.png")).getImage();
         birdImg = new ImageIcon(getClass().getResource("./flappybird.png")).getImage();
         topPipeImg = new ImageIcon(getClass().getResource("./toppipe.png")).getImage();
@@ -119,10 +122,10 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void draw(Graphics g) {
-        //background
+        //background		//adding the background image using
         g.drawImage(backgroundImg, 0, 0, this.boardWidth, this.boardHeight, null);
 
-        //bird
+        //bird		//adding the bird image using draw
         g.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height, null);
 
         //pipes
